@@ -49,7 +49,7 @@ Project/
 
 ## 🚀 How to Run the App
 ### 1. Clone the Repository
-git clone https://github.com/your-username/age-classification-cnn.git
+git clone https://github.com/Vinonyx/age-classification-cnn.git
 cd age-classification-cnn
 ### 2. Create a Virtual Environment (Recommended)
 python -m venv .venv
