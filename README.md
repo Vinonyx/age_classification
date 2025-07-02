@@ -49,17 +49,17 @@ Project/
 
 ## 🚀 How to Run the App
 ### 1. Clone the Repository
-git clone https://github.com/Vinonyx/age-classification-cnn.git
-cd age-classification-cnn
+- git clone https://github.com/Vinonyx/age-classification-cnn.git
+- cd age-classification-cnn
 ### 2. Create a Virtual Environment (Recommended)
-python -m venv .venv
-source .venv/bin/activate   # On Linux/macOS
-.venv\Scripts\activate      # On Windows
+- python -m venv .venv
+- source .venv/bin/activate   # On Linux/macOS
+- .venv\Scripts\activate      # On Windows
 ### 3. Install Dependencies
-pip install -r requirements.txt
+- pip install -r requirements.txt
 ### 4. Run the App
-python app.py
-Visit http://127.0.0.1:5000 in your browser.
+- python app.py
+- Visit http://127.0.0.1:5000 in your browser.
 
 ## 🔍 How It Works
 1. User uploads an image from the browser.
