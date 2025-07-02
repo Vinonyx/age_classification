@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Upload Gambar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <!-- Navigation Bar -->
+    <nav
+      class="bg-blue-600 text-white px-6 py-4 shadow w-full absolute top-0 left-0"
+    >
+      <div class="flex justify-between items-center max-w-5xl mx-auto">
+        <div class="text-lg font-semibold">Dashboard</div>
+        <ul class="flex space-x-6 text-sm font-medium">
+          <li><a href="/" class="hover:underline">Upload Gambar</a></li>
+          <li><a href="/timeseries" class="hover:underline">Time Series</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md mt-20">
+      <h2 class="text-2xl font-bold text-center mb-6 text-gray-700">
+        Upload Gambar
+      </h2>
+
+      <form method="POST" enctype="multipart/form-data" class="space-y-4">
+        <div>
+          <label class="block mb-2 text-sm font-medium text-gray-600"
+            >Pilih Gambar</label
+          >
+          <input
+            type="file"
+            name="file"
+            accept="image/*"
+            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+          />
+        </div>
+        <div>
+          <button
+            type="submit"
+            class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md"
+          >
+            Upload
+          </button>
+          {% if error_message %}
+          <div class="bg-red-100 text-red-700 px-4 py-2 rounded mb-4">
+            {{ error_message }}
+          </div>
+          {% endif %}
+        </div>
+      </form>
+      {% if filename %}
+      <div class="mt-6">
+        <h3 class="text-center text-gray-600 mb-2">
+          Gambar berhasil diupload:
+        </h3>
+        <div class="flex flex-wrap justify-center items-start gap-6">
+          <!-- Gambar Asli -->
+          <div class="flex flex-col items-center">
+            <img
+              src="{{ url_for('static', filename='uploads/' + filename) }}"
+              class="w-64 rounded-lg shadow"
+            />
+            <p class="mt-2 text-sm text-gray-600">Gambar Asli</p>
+          </div>
+
+          {% if predictions %}
+          <div class="flex flex-wrap gap-4">
+            {% for pred in predictions %}
+            <div
+              class="flex flex-col items-center bg-gray-100 p-4 rounded shadow"
+            >
+              <img
+                src="{{ url_for('static', filename='uploads/crops/' + pred.crop_filename) }}"
+                class="w-32 rounded-lg shadow"
+              />
+              <p class="mt-2 text-gray-800 font-semibold text-center">
+                {{ pred.age }}
+              </p>
+              <p class="text-xs text-gray-600 text-center">
+                Confidence: {{ "%.2f"|format(pred.confidence) }}%
+              </p>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

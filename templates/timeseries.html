@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Time Series Forecast</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex flex-col items-center pt-24">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white px-6 py-4 shadow w-full fixed top-0">
+      <div class="flex justify-between items-center max-w-5xl mx-auto">
+        <div class="text-lg font-semibold">Dashboard</div>
+        <ul class="flex space-x-6 text-sm font-medium">
+          <li><a href="/" class="hover:underline">Upload Gambar</a></li>
+          <li><a href="/timeseries" class="hover:underline">Time Series</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl mt-10">
+      <h2 class="text-2xl font-bold text-gray-700 text-center mb-6">
+        Time Series Forecast: Unemployment Rate
+      </h2>
+      <img
+        src="{{ url_for('static', filename='images/forecasting.jpg') }}"
+        alt="Forecasting Unemployment Rate"
+        class="rounded shadow w-full"
+      />
+      <div
+        class="mt-8 text-gray-700 space-y-4 text-justify text-sm leading-relaxed"
+      >
+        <h3 class="text-lg font-semibold text-gray-800">
+          Analisis Hasil Visualisasi
+        </h3>
+        <p>
+          Grafik ini menunjukkan tren tingkat pengangguran untuk berbagai
+          kelompok usia dari tahun 2008 hingga 2023, serta prediksi hingga 2025.
+          Kelompok usia 16–19 dan 20–24 tahun memiliki tingkat pengangguran
+          tertinggi sepanjang waktu. Kelompok usia 55 tahun ke atas cenderung
+          paling stabil.
+        </p>
+        <p>
+          Pandemi COVID-19 memicu lonjakan tajam pengangguran pada 2020,
+          terutama pada kelompok usia muda. Setelah itu, tren mulai menurun
+          tetapi belum sepenuhnya pulih.
+        </p>
+        <p>
+          Prediksi menunjukkan potensi kenaikan kembali untuk semua kelompok
+          usia, terutama yang lebih muda. Ini menandakan pentingnya intervensi
+          kebijakan pada sektor pendidikan dan lapangan kerja untuk generasi
+          muda.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
